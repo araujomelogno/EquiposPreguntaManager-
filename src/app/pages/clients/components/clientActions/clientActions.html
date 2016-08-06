@@ -1,0 +1,40 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-5">
+            <div>
+                <ba-card title="Cliente" baCardClass="with-scroll">
+                    <div class="form-group">
+                        <label for="clientName">Nombre</label>
+                        <input type="text" class="form-control" id="clientName" placeholder="Nombre" [(ngModel)]="client.name">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientMail">Email</label>
+                        <input type="email" class="form-control" id="clientMail" placeholder="Email" [(ngModel)]="client.email">
+                    </div>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
+                </ba-card>
+                <button type="submit" class="btn btn-danger">Nuevo Proyecto</button>
+                
+                <div class="horizontal-scroll">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="black-muted-bg">
+                                <th>Nombre</th>
+                                <th class="align-left">Creado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let project of client.projects" class="no-top-border" (click)="selectProject(project)">
+                                <td ngClass="nowrap">{{project.name}}</td>
+                                <td class="align-left">{{project.created}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

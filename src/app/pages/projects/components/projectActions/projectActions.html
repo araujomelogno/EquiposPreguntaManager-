@@ -1,0 +1,72 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-5">
+            <div>
+                <ba-card title="Cliente" baCardClass="with-scroll">
+                    <div class="form-group">
+                        <label for="clientName">Nombre</label>
+                        <input type="text" class="form-control" id="clientName" placeholder="Nombre" [(ngModel)]="project.name">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientName">Cantidad</label>
+                        <input type="text" class="form-control" id="goal" placeholder="Cantidad" [(ngModel)]="project.goalQuantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientName">Completas</label>
+                        <input type="text" class="form-control" id="count" placeholder="Completas" [(ngModel)]="project.completedQuantity">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="created">Creado</label>
+                        <input type='date' id='created' class="form-control" [(ngModel)]="project.created" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="init">Inicio</label>
+                        <input type='date' id='init' class="form-control" [(ngModel)]="project.init" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="end">Fin</label>
+                        <input type='date' id='end' class="form-control" [(ngModel)]="project.end" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="activeSurvey">Encuesta activa:</label>
+                        <select id="activeSurvey" [(ngModel)]="project.activeSurvey">
+                            <option *ngFor="let survey of project.surveys" value= {{survey}}>{{survey.name}}</option>
+                        </select>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
+                </ba-card>
+                <br/>
+                <button type="submit" class="btn btn-danger">Nueva Encuesta</button>
+                <br/>
+                <div class="horizontal-scroll">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="black-muted-bg">
+                                <th>Nombre</th>
+                                <th class="align-left">Creado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let survey of project.surveys" class="no-top-border" (click)="selectSurvey(survey)">
+                                <td ngClass="nowrap">{{survey.name}}</td>
+                                <td class="align-left">{{survey.created}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
